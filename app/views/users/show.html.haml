@@ -7,6 +7,16 @@
   %b Email:
   = @user.email
 
+%p
+  %b Microposts
+  %p
+    - if @microposts.present?
+      - @microposts.to_a.each do |post|
+        #{post.content} (#{post.content.length})
+    - else
+      No Posts
+
+
 = link_to 'Edit', edit_user_path(@user)
 \|
 = link_to 'Back', users_path
